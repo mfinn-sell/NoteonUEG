@@ -1,0 +1,126 @@
+\documentclass[11pt,a4paper]{amsart}
+
+%Fonts
+
+\usepackage{libertine}
+\usepackage{euler}
+\usepackage[T1]{fontenc}
+
+%Packages.
+
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows}
+\usepackage[all]{xy}
+\usepackage{mathrsfs}
+\usepackage{a4wide}
+\usepackage{enumerate}
+\usepackage{hyperref}
+%\usepackage{showkeys}
+\usepackage{setspace}
+
+%Theorem styles.
+
+\theoremstyle{plain}
+\newtheorem{conj}{Conjecture}
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}%[section]
+\newtheorem{proposition}[theorem]{Proposition}%[section]
+\newtheorem{corollary}[theorem]{Corollary}%[section]
+\newtheorem{claim}[theorem]{Claim}%[section]
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem*{thm}{Theorem}
+
+\theoremstyle{definition}%[section]
+\newtheorem{definition}[theorem]{Definition}%[section]
+\newtheorem{example}[theorem]{Example}%[section]
+\newtheorem{project}{Project}
+
+\theoremstyle{remark}%[section]
+\newtheorem{remark}[theorem]{Remark}%[section]
+
+%Title etc.
+
+\title{A note concerning coarse embeddability of metric spaces into groups.} 
+\date{May 2013}
+\author{Martin Finn-Sell}
+
+\begin{document}
+
+\section{Introduction.}
+
+\section{Partial actions and coarse embeddability.}
+
+\begin{definition}
+Partial Action.
+\end{definition}
+
+\begin{definition}
+Free, Transitive, etc. 
+\end{definition}
+
+\begin{definition}
+Globalisation of a partial action.
+\end{definition}
+
+\begin{theorem}
+Transitive globalisations are quotients of the acting group by stabiliser subgroups. 
+\end{theorem}
+
+\begin{corollary}
+If the action is free then the stabiliser subgroups are trivial; so the globalisation is the group itself.
+\end{corollary}
+
+Remark that given a space with a partial action that is free and transitive, we certainly get an embedding of the space into the group in question. The idea is to show that this map must be coarse. We give related ideas from coarse geometry.
+
+\begin{definition}
+A coarse structure is...
+\end{definition}
+
+\begin{theorem}
+If a metric space $X$ admits a free, transitive partial action of a discrete group $\Gamma$ such that for each $R>0$ there are $g_{1},...,g_{n_{R}} \in \Gamma$ such that $\Delta_{R}(X) \subseteq \bigcup_{i=1}^{n_{R}}\theta_{g_{i}}$ then the map $i$ from globalisation theorem is a coarse embedding.
+\end{theorem}
+
+Right. This result presupposes a partial action of a group. We want to weaken this to construct a group!
+
+\section{A strengthening of this result.}
+
+Given any collection of partial bijections of a set a we can generate a semigroup. If the set contains inverses, then this semigroup is inverse...
+
+\begin{definition}
+Inverse semigroup, partial order, etc.
+\end{definition}
+
+Partial actions give rise to examples.
+
+\begin{definition}
+Strongly 0-F-inverse monoids, universal groups...
+\end{definition}
+
+In this instance, we have a universal group. It's hard to understand but it's a group. It may be trivial. 
+
+Now some coarse geometry.
+
+\begin{definition}
+A abstract partial translation structure on a set $X$ is...
+
+A translation structure is a ATS on a metric space that generates the metric coarse structure.
+\end{definition}
+
+\begin{lemma}
+If every word in the universal group acts  
+\end{lemma}
+
+\section{Examples using large girth graphs.}
+
+\bibliographystyle{alpha}
+\bibliography{ref.bib}
+
+
+\end{document}
