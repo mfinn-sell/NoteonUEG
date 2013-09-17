@@ -57,10 +57,11 @@
 
 \section{Introduction.}
 
-\section{Partial actions and coarse embeddability.}
+The aim of these notes is to outline a characterisation of coarse embeddability of a metric space into a group and prove that under certain hypotheses this metric is proper. Additionally, we apply this to certain labellings of the AGS box space sequence, providing an embedding into a countable group without proper metric and conjecturing a refinement of this construction provides an embedding into a finitely generated group.
 
-A partial bijection is...
-A map of a group into the set of partial bijections is called a dual prehomomorphism if...
+The final section is finding a home for a result about the Baum-Connes conjecture with coefficients for the Gromov monster groups that contain expanders of large girth. 
+
+\section{Partial actions and coarse embeddability.}
 
 \begin{definition}
 Let $\Gamma$ be a finitely generated discrete group and let $X$ be a (locally compact Hausdorff) topological space. A \textit{partial action} of $\Gamma$ on $X$ is a dual prehomomorphism that has the following properties:
@@ -215,7 +216,7 @@ So consider the map $\Phi$ applied to a $\theta_{g}$:
 \Phi(\theta_{g})=\sigma ( m(\overline{\theta}^{-1}(\theta_{g}))) = \sigma ( \lbrace 1,g \rbrace, g)= g
 \end{equation*}
 
-Now assume that $\Phi(\theta_{g}) = e_{G}$. Then it follows that $\sigma (m (\overline{\theta}^{-1}(\theta_{g})))=e_{G}$. As $\sigma$ is idempotent pure, it follows then that $m(\overline{\theta}^{-1}(\theta_{g}))=1$, hence for any preimage $t\in \theta}^{-1}(\theta_{g})$ we know that $t \leq 1$, and by the property of being 0-E-unitary it then follows that $t \in E(G^{pr})$. Mapping this back onto $\theta_{g}$ we can conclude that $\theta_{g}$ is idempotent, but by assumption this only occurs if $g = e$.\end{proof}
+Now assume that $\Phi(\theta_{g}) = e_{G}$. Then it follows that $\sigma (m (\overline{\theta}^{-1}(\theta_{g})))=e_{G}$. As $\sigma$ is idempotent pure, it follows then that $m(\overline{\theta}^{-1}(\theta_{g}))=1$, hence for any preimage $t\in \theta^{-1}(\theta_{g})$ we know that $t \leq 1$, and by the property of being 0-E-unitary it then follows that $t \in E(G^{pr})$. Mapping this back onto $\theta_{g}$ we can conclude that $\theta_{g}$ is idempotent, but by assumption this only occurs if $g = e$.\end{proof}
 
 \begin{corollary}
 Let $S = \langle \theta_{g} | g \in \Gamma \rangle$, where $\theta: \Gamma \rightarrow S$ is a free partial action. If $S$ is 0-F-inverse with maximal elements $Max(S) = \lbrace \theta_{g} | g \in \Gamma \rbrace$ then $S$ is strongly $0$-F-inverse.\qed
@@ -228,9 +229,10 @@ Let $X$ be a countable set. A collection of partial bijections $\mathcal{T}$ is 
 \item $\forall t_{i}, t_{j} \in \mathcal{T}$ $\exists t_{k} \in \mathcal{T}$ we have $t_{i}t_{j} \subseteq t_{k}$ (i.e $\mathcal{T}$ is subclosed).
 \item $\forall t \in \mathcal{T}$ we have $t^{*} \in \mathcal{T}$.
 \item $\mathcal{T}$ has a global identity, denote this $t_{0}$.
+\end{enumerate}
 \end{definition}
 Every abstract partial translation structure generates a coarse structure. If that coarse structure is the metric coarse structure then we just call it a \textit{partial translation structure}. 
-\end{definition}
+
 
 Every abstract partial translation structure is a collection of partial bijections that contains all inverses so it generates submonoid of $I(X)$.
 
@@ -288,7 +290,7 @@ We have just proved the following:
 Given a sequence of finite graphs $\lbrace X_{i} \rbrace$ such that the space of graphs $X$ has a coherent Pedersen labelling. Then the group $\Gamma$ constructed above acts freely partially on $X$.
 \end{theorem}
 
-We now specialize to the case that $X$ is a space of graphs constructed from a sequence of finite graphs. The action constructed above obviously generates the graph metric on $X$, but is not transitive so we do not yet have a coarse embedding of $X$ into $\Gamma$. We add the transitivity by by constructing a partial translation structure from this partial action.
+The action constructed above obviously generates the graph metric on $X$, but is not transitive so we do not yet have a coarse embedding of $X$ into $\Gamma$. We add the transitivity by by constructing a partial translation structure from this partial action.
 
 \begin{proposition}\label{Prop:CheapTrick}
 Given the free partial action of the discrete group $\Gamma$ on a space of graphs $X$ there is a strong partial translation structure $\mathcal{T}$ on $X$ built from the action that has universal group $\Gamma\ast F_{\infty}$.
@@ -296,58 +298,83 @@ Given the free partial action of the discrete group $\Gamma$ on a space of graph
 \begin{proof}
 Let $\theta: \Gamma \rightarrow I(X)$ be the partial action that generates the metric on $X$. Then define $\mathcal{T}:=\lbrace \theta_{g} | g \in \Gamma \rbrace \cup \lbrace t_{x,y} | x,y \in X\times X \rbrace$, where $t_{x,y}$ is the map defined on the singleton $x$, that sends it to the singleton $y$. Clearly now $\mathcal{T}$ satisfies the axioms of an abstract partial translation structure, and it also generates the metric coarse structure because the partial action does. 
 
-Prove its strong!
+We compute the universal group. It clearly has a quotient that is $\Gamma$, however we observe also that it is generated by $\lbrace \theta_{g} | g \in \Gamma \rbrace$ and $t_{x_{i},x_{i+1}}$ where the set of the $x_{i}$ are base points of the $X_{i}$. The only relations in the universal group are those in the $\theta_{g}$, or $t_{x,y}=\theta_{g_{i}}t_{x_{i},x_{i+k}}\theta_{g_{i+k}}$, where $g_{i},g_{i+k}$ are labels on the shortest path between $x$ to $x_{i}$ and $x_{i+k}$ to $y$ respectively. This gives a map: $\Gamma \ast F_{\infty} \rightarrow U(\mathcal{T}$ which is well defined as as the only possible ambiguity of choices in the decomposition occurs in the $g_{i}$, which are chosen based on shortest paths. If there are two shortest paths between $x$ and $x_{i}$ then we observe that they form a cycle, and hence the composites of the labels form a relation in $\Gamma$. This also proves the map is  injective. As every possible word in $U(\mathcal{T})$ can be decomposed this way, this map extends to the wanted equality: $U(\mathcal{T})=\Gamma \ast F_{\infty}$.
 
-Lastly, we compute the universal group. It clearly has a quotient that is $\Gamma$, however we observe also that it is generated by $\lbrace \theta_{g} | g \in \Gamma \rbrace$ and $t_{x_{i},x_{i+1}}$ where the set of the $x_{i}$ are base points of the $X_{i}$. The only relations in the universal group are those in the $\theta_{g}$, or $t_{x,y}=\theta_{g_{i}}t_{x_{i},x_{i+k}}\theta_{g_{i+k}}$, where $g_{i},g_{i+k}$ are labels on the shortest path between $x$ to $x_{i}$ and $x_{i+k}$ to $y$ respectively. This gives a map: $\Gamma \ast F_{\infty} \rightarrow U(\mathcal{T}$ which is well defined as as the only possible ambiguity of choices in the decomposition occurs in the $g_{i}$, which are chosen based on shortest paths. If there are two shortest paths between $x$ and $x_{i}$ then we observe that they form a cycle, and hence the composites of the labels form a relation in $\Gamma$. This also proves the map is  injective. As every possible word in $U(\mathcal{T})$ can be decomposed this way, this map extends to the wanted equality: $U(\mathcal{T})=\Gamma \ast F_{\infty}$.
+To see that the inverse monoid generated by $\mathcal{T}$ is strong, we observe that it is generated by a free transitive partial action of $U(\mathcal{T})$ and so it follows by Proposition \ref{Prop:Strongly}.
 \end{proof}
 
 This allows us to complete a coherent Pedersen labelling on a space of graphs into a constructible coarse embedding by adding transitivity and applying Theorem \ref{Thm:SPTSCE}
 
 The remainder of the paper is going to be focused on constructing a coherent Pedersen labelling on a particular sequence of finite graphs with large girth.
 
-\section{The construction.}
+\section{Preliminaries on large girth graphs and small cancellation sentences.}
 
-\subsection{The space of Arzantseva, Guentner and Spakula.}
+\subsection{AGS box space.}
 
-Some words on their construction, explain why the structure is nice, how the girth grows and give our seed graph.
+See the paper \cite{}. Will fill this in as time goes on. We have certain useful numbers associated to this sequence to compile and we need to prove a small combinatorial lemma concerning the barycentric subdivisions and sizes of the edge set that have a square number of edges.
 
 \subsection{A set of small cancellation words of Erchler-Osin.}
 
+For this section, we need an early section of \cite{}, mostly concerned again with certain numerical values that have significance in this work.
+
 Explain their construction, state their theorem and the forms of words we'll be using.
 
-\subsection{All together now...}
+\section{Barycentric subdivision.}
+
+Let $\lbrace X_{i} \rbrace$ be a sequence of finite graphs with uniformly bounded degree. Then we construct a new sequence of graphs by barycentric subdividing each edge into $k_{i}$ new edges. This graph, if $k_{i}$ is bounded, is coarsely equivalent to the original sequence and so if we give as input a sequence of large girth, the new space will not have property A. We will outline this in the next section.
+
+\subsection{Bounded barycentric subdivsion.}
 
 As the graphs $X_{i}$ have only even vertex degrees they each admit an Euler cycle. Additionally, every edge belongs to a unique cycle of type I, and so there is a bijection $E(X_{i}) = \sqcup_{j=1}^{l} c_{i,j}$, where $l$ is the number of cycles of type I. Each of these cycles has the same length, $\vert c_{i,j} \vert = k2^{i}$, where $k$ is the number of barycentric subdivisions applied to the original seed graph $Y$. We fix $k=2^{3}$ for what is to come.
 
-By picking an initial vertex $v_{j}$ in each cycle $c_{i,j}$ it is possible to label $c_{i,j}$ using a word in $T(2^{i+3})$. This labelling then gives us a edge labelling $L$ of the graph $X_{i}$. Doing this for every $i>11$ gives us a labelling of the space of graphs $X_{>11}$. Now we adjust the labelling such that it is both Pedersen and coherent.
+By picking an initial vertex $v_{j}$ in each cycle $c_{i,j}$ it is possible to label $c_{i,j}$ using a word in $T(2^{i+3})$. This labelling then gives us a edge labelling $L$ of the graph $X_{i}$. Doing this for every $i>11$ gives us a labelling of the space of graphs $X_{>11}$, which we denote by $\mathcal{L}_{0}$. This will not in general be Pedersen, so we remedy this by adjusting the $X_{i}$.
 
-\begin{lemma}
-By swapping certain letters around vertices of degree 4 the labelling becomes Pedersen.
+Given a finite graph $X$ with vertices of degree $2$ and $4$ (as we have above) and a labelling $L$, it is possible to construct a new graph $Y$ by replacing each vertex of degree 4 by two vertices joined by an edge. Now the maximal degree in $Y$ is $3$. We perform this construction on the entire sequence $X_{i}$ from above to get a sequence $Y_{i}$. We remark that this is in essence constructed from the disjoint union of the short cycle representatives of each $X_{i}$ by adding an edge between any two vertices that would be glued together in $X_{i}$. The spaces of graphs constructed from the $\lbrace X_{i} \rbrace$ and $\lbrace Y_{i} \rbrace$ are coarsely equivalent. Using the technique above, we can construct labelling on the $Y_{i}$ where each type I cycle is labelled by a word in $T(2^{i+3})$ and the new edges are labelled by a new letter $c$. Denote this new labelling by $\mathcal{L}_{1}$. The following lemma is now clear:
+
+\begin{lemma}\label{lem:modpedersen}
+The labelling $\mathcal{L}_{1}$ is Pedersen. 
+\end{lemma}
+
+Now the following also holds $\mathcal{L}_{1}$:
+
+\begin{lemma}\label{lem:shortcoherent}
+Let $c_{i}$ be a type I cycle in $Y_{i}$ and let $p$ be any proper subpath of a type $I$ cycle in $Y_{\geq i+1}$. Then the label of $p$ contains no more than $\lambda_{i}$ of the label of $c_{i}$. 
 \end{lemma}
 \begin{proof}
-We observe that by fixing a basepoint and labelling around a cycle, we induce an orientation that follows the letters in that cycle. This is good enough for each vertex of degree 2. The problems that possibly arise occur in the vertices of degree 4. Each vertex of degree 4 belongs to precisely two of the cycles $c_{i,j}$. We observe that any given vertex $v$ of degree 4 can have one of three states within a cycle $c_{i,j}$, namely: it separates a $b$ from an $a^{6}$ or it appears within a $y_{h}$ of the word $w_{j}$. We denote these states by $A$ or $B$ respectively. There are now 4 possible cases indexed by pairs of states, that is $v$ is either $(A,A)$, $(A,B)$, $(B,A)$ or $(B,B)$.
-
-Case $(A,A)$: With the orientation induced by labelling each cycle along the word $w_{j}$, we observe that this vertex has two $a$'s leaving and two $b$'s entering and we cannot exchange the roles of $a$ and $b$ without removing our label from the set $T(n)$. In this instance, we just change the orientation of one of the two pairs; swap the orientation on the $ba^{6}$. This may encounter a problem with the $b$ as it may be preceeded by a $b$ (as the last letter of the word $y_{h}$ for some $h$). In that instance, swap the $b$ to an $a$ and denote this word by $\overline{y}_{h}$. The new label $\overline{w}$ will be an element of $T(n)$ unless this change adds an $a^{6}$ to $\overline{y}_{h}$. In this instance, we swap the $ab$ that preceeds $ba^{6}$ with $ba$. With this orientation and swapping where necessary, every vertex of type $(A,A)$ will have a Pedersen labelling.
-
-Case $(B,B)$: At a vertex $v$ of type $(B,B)$ we will see some combination of $a$ and $b$'s going in and out of $v$. There are many cases here. If there are exactly two $a$ and two $b$ edges, we adjust the orientations as in the previous case to match those of a Pedersen label. If there are more $b$ than $a$ we perform swaps of $b$ to $a$ until equality is reached. The new words on the corresponding cycles will be elements of $T(n)$ unless this process adds $a^{6}$'s to the words. In those instances, we just exchange places of a $b$ with an $a$ as in the previous case. The case of more $a$ than $b$ labels is similar but easier as adding more $b$'s in place of $a$'s never takes us from $T(n)$. 
-
-Case $(B,A)$ or $(A,B)$. In this case we preceed as in the previous case except all changes are made to the type $B$ cycle.
+Let $p$ be as described, and let $c_{j}$ be the type $I$ cycle that contains $p$ and denote by $w_{c_{i}}$ and $w_{c_{j}}$ the labels of the cycles $c_{i}$ and $c_{j}$. Lastly, denote by $w$ the subword of $w_{c_{j}}$ that labels $p$. Assume for a contradiction that there is a common subword $w^{'}$ of $w$ and $w_{c_{i}}$ that satisfies $\vert w\vert \geq\lambda_{i} \vert w_{c_{i}} \vert$. This subword is also a subword of$w_{c_{j}}$ and by the small cancellation condition on words in $\cup_{\geq i} T(2^{i+3})$ we know that any common subword of $w_{c_{i}}$ and $w_{c_{j}}$ has length at most $\lambda_{i} \vert w_{c_{i}} \vert$. 
 \end{proof}
 
-\begin{lemma}
-With the modifications above the labelling is coherent.
-\end{lemma}
-\begin{proof}
-Assume for a contradiction that there is a path $p$ in some $X_{j}$ that is labelled with the same word as a cycle $c$ in $X_{i}$, where $i \leq j$. We immediately break the proof into two cases: $c$ is type I or type II. First assume it is type I. If $p$ is contained within a single type I cycle $c_{j}$ then the small cancellation property gives a contradiction as the label of $p$ can share only $\frac{\vert c \vert}{50}$ letters with $c$, but it shares all of them. So we are reduced to the case that $p$ travels through multiple type I cycles $c_{j,1},...,c_{j,n}$.
-\end{proof}
+Lemma \ref{lem:shortcoherent} implies that the labelling is coherent for cycles of type $I$. This leaves a proof for cycles of type II. Let $p$ be a proper path and let $c$ be a cycle in $Y$. Let $i$ be the smallest natural number such that $p$ and $c$ are contained in some $X_{\geq i}$. If the labelling $w_{p}$ matches the labelling $w_{c}$ then we know it can contain at most $\lambda_{i}\vert c_{i,I} \vert$ of the label of any type I cycle in $X_{i}$. In fact, this means that $w_{p}=\prod_{j=1}^{k}b_{j}c$, where $\vert b_{j} \vert < \lambda_{i}\vert c_{i,I} \vert$. We call these subwords $b_{j}$ \textit{blocks}.
 
+We get the following estimate on $\vert w_{p} \vert = \sum_{j=1}^{k} (\vert b_{j} \vert +1) < k(\lambda_{i}\vert c_{i,I} \vert +1)$, which in turn implies that the number of blocks is greater than $1\backslash \lambda_{i}$.
+
+And this is the best I can do to fix this situation.
+
+To be clear, the consequences of this working out as coherent are the following: 
 
 \begin{theorem}
-The group $\Gamma$ is not exact.
+The group $\Gamma$ constructed using the partial action induced by the labelling $\mathcal{L}_{1}$ does not have property A.
 \end{theorem}
 \begin{proof}
 The sequence of graphs $X_{>11}^{odd}$ admits a coherent Pedersen labelling $\tilde{L}$ that induces a free partial action of $\Gamma$. $\Gamma$ is also the universal group of $S(L)$, the inverse monoid generated by the labelling. We extend this labelling to a strong partial translation structure $\mathcal{T}$ using Proposition \ref{Prop:CheapTrick} and then apply Theorem \ref{Thm:SPTSCE} to get a coarse embedding into the universal group $U(S(\mathcal{T}))$. By Theorem \ref{Thm:SPTSCE} this universal group is isomorphic to $\Gamma \ast F_{\infty}$. As a consequence this does not have property A in any proper metric, from where we deduce that $\Gamma$ itself does not have property A by permanence properties \cite[Guentner]{} and Theorem 4.3.9 of \cite[Rufus' notes on A]{}. 
 \end{proof}
+
+\begin{conjecture}
+The labelling $\mathcal{L}_{1}$ is coherent.
+\end{conjecture}
+
+\subsection{What about graphical small cancellation?}
+
+Explain here that graphical small cancellation conditions introduced throughly in \cite{} give rise to coherent Pedersen labellings. Remark then that one could consider the goal of constructing a graphical small cancellation labelling explicitly to utilise these results. In fact, however, there is a view that these currently weaker conditions. 
+
+\section{A final application of Theorem \ref{}.}
+
+In this section we will give a translation structure proof that Gromovs monster groups, the lacunary hyperbolic groups constructed via probabilistic methods \cite{,}, are not $C^{*}$-exact. This argument is a rephasing into geometric terms of the original argument given by Higson, Lafforgue and Skandalis \cite{}.
+
+This geometric approach factors through a result of Milan and Steinberg \cite{}, which uses the concept of an inverse semigroup valued map that satisfies certain criteria:
+
+We can develop this geometric argument further to prove the Baum-Connes conjecture for Gromov monster groups that coarsely contain a large girth expander.
+
 
 
 \bibliographystyle{plain}
