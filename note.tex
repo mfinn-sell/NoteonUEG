@@ -11,7 +11,7 @@
 \usepackage{verbatim}
 \usepackage{amsmath}
 \usepackage{amssymb}
-%\usepackage{amsfonts}
+\usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{mathrsfs}
 \usepackage{tikz}
@@ -47,8 +47,8 @@
 
 %Title etc.
 
-\title{Coarse embedding certain spaces of large girth into groups.} 
-%\date{}
+\title{A partial action characterisation of coarse embeddability into groups and applications.} 
+\date{}
 \author{Martin Finn-Sell}
 
 \begin{document}
@@ -60,6 +60,8 @@
 The aim of these notes is to outline a characterisation of coarse embeddability of a metric space into a group and prove that under certain hypotheses this metric is proper. Additionally, we apply this to certain labellings of the AGS box space sequence, providing an embedding into a countable group without proper metric and conjecturing a refinement of this construction provides an embedding into a finitely generated group.
 
 The final section is finding a home for a result about the Baum-Connes conjecture with coefficients for the Gromov monster groups that contain expanders of large girth. 
+
+Please bear in mind these notes are very rough; I've typed them up by they avoid all the details from other papers that would need to be included to make them stand alone. Hopefully the references are complete enough. Thanks for looking at this, basically. 
 
 \section{Partial actions and coarse embeddability.}
 
@@ -89,17 +91,21 @@ Consider the space $X\times G$, equipped with the product topology. Then define 
 $G$ acts on $\Omega$ using right multiplication by inverses on the group factor of the equivalence classes. Clearly the map that sends $x \in X$ to $[1,x] \in \Omega$ is a topological injection. The main result of \cite{MR2041539} is that this new topological space is minimal amongst globalisations of $X$.
 \end{definition}
 
-One useful outcome of globalization of the partial action is to get an idea of the structure of the original space.
+One useful outcome of globalization of the partial action is to get an idea of the structure of the original space. Let $G_{x}$ denote the subgroup of $G$ given by the set:
+\begin{equation*}
+\lbrace g \in G | \theta_{g}(x) \mbox{ is defined and equal to } x \rbrace.
+\end{equation*} 
 
-\begin{theorem}\label{Thm:Free}
-Transitive globalisations of discrete group actions on discrete spaces are quotients of the acting group by stabiliser subgroups.
+\begin{theorem}\label{Thm:Free}\cite[Theorem 2.6]{MR2419858}
+For a transitive partial action $\theta: G \rightarrow I(X)$ and $x_{0} \in X$ the set $G/ G_{x_{0}}$ is equivalent to the space $\Omega$ defined above.
 \end{theorem}
 
 \begin{corollary}\label{Cor:FreeTrans}
-If the action is free then the stabiliser subgroups are trivial; so the globalisation is the group itself.
+If the partial action is also assumed to be free then the minimal globalisation is given by the group $G$ itself.
 \end{corollary}
 
 Remark that given a space with a partial action that is free and transitive, we certainly get an embedding of the space into the group in question. The idea is to show that this map must be coarse. We give related ideas from coarse geometry.
+
 \begin{definition}
 Let $X$ be a set and let $\mathcal{E}$ be a collection of subsets of $X \times X$. If $\mathcal{E}$ has the following properties:
 \begin{enumerate}
@@ -144,7 +150,7 @@ Fix a proper metric on $\Gamma$, given by a length function $l$. We remark that 
 
 \section{A strengthening of Theorem \ref{Thm:Embedding}}
 
-Let $S$ be a semigroup and let $s \in S$. Then $u$ is said to be an \textit{inverse} for $s$ if $sus=s$ and $usu=u$. A semigroup $S$ is \textit{regular} if every element $s$ has some inverse element $u$, and \textit{inverse} if that inverse element is unique, in which case we denote it by $s^{*}$. Groups are examples of semigroups that are inverse with only a single idempotent. It is clear that in an inverse semigroup $S$ every element $ss^{*}$ is idempotent, and this classifies the structure of idempotents \cite{}. We remark also that the idempotents of $S$ form a commutative inverse subsemigroup $E(S)$ that can be partially ordered using this multiplication: Let $e,f \in E(S)$ then:
+Let $S$ be a semigroup and let $s \in S$. Then $u$ is said to be an \textit{inverse} for $s$ if $sus=s$ and $usu=u$. A semigroup $S$ is \textit{regular} if every element $s$ has some inverse element $u$, and \textit{inverse} if that inverse element is unique, in which case we denote it by $s^{*}$. Groups are examples of semigroups that are inverse with only a single idempotent. It is clear that in an inverse semigroup $S$ every element $ss^{*}$ is idempotent, and this classifies the structure of idempotents \cite{MR1455373}. We remark also that the idempotents of $S$ form a commutative inverse subsemigroup $E(S)$ that can be partially ordered using this multiplication: Let $e,f \in E(S)$ then:
 \begin{equation*}
 e \leq f \Leftrightarrow ef=e
 \end{equation*}
@@ -162,7 +168,7 @@ Let $z \in S$. We say $z$ is a zero element if $z \in E(S)$ and $zs=sz=z$. The e
 
 For concrete semigroups of partial bijections this condition is equivalent to the restriction of any element never being an idempotent.
 
-Let $S$ be a inverse semigroup. Then it is possible to define a \text{universal group} of $S$ \cite{}, denoted by $U(S)$, to be the group generated by the elements of $S$ with relations $s\cdot t = st$ if $st \not = 0$. Clearly, there is a map $\Phi$ from $S$ to the universal group $U(S)$, given by mapping $s$ to its corresponding symbol in $U(S)$. This map is \textit{not} a homomorphism, but after adjoining a zero element to $U(S)$ does satisfy the inequality $\Phi(st) \leq \Phi(s)\Phi(t)$. Such a map is called a \textit{prehomomorphism}. 
+Let $S$ be a inverse semigroup. Then it is possible to define a \text{universal group} for $S$ \cite{MR2058453}, denoted by $U(S)$, to be the group generated by the elements of $S$ with relations $s\cdot t = st$ if $st \not = 0$. Clearly, there is a map $\Phi$ from $S$ to the universal group $U(S)$, given by mapping $s$ to its corresponding symbol in $U(S)$. This map is \textit{not} a homomorphism, but after adjoining a zero element to $U(S)$ does satisfy the inequality $\Phi(st) \leq \Phi(s)\Phi(t)$. Such a map is called a \textit{prehomomorphism}. 
 
 \begin{definition}
 We say $S$ is 0-F-inverse if the preimage of each group element in $U(S)$ has a maximal element within the partial order of $S$. In this case, we denote these elements by $Max(S)$, and the universal group is generated by the set $Max(S)$ with the product: $s\ast t = u$, where $u$ is the unique maximal element above $st \in S$. 
@@ -170,7 +176,7 @@ We say $S$ is 0-F-inverse if the preimage of each group element in $U(S)$ has a 
 Finally, $S$ is said to be strongly $0$-F-inverse if it is $0$-F-inverse and there is some group $\Gamma$ and a $0$-restricted idempotent pure homomorphism onto $G^{0}$. In particular, this must factor though the universal group, so this amounts to asking if the map $\Phi$ is idempotent pure.
 \end{definition}
 
-In general, universal groups are hard to calculate. They play a role in determining the structure of this class of inverse monoid however \cite{}. This class of inverse monoid is also intimately connected to partial actions of discrete groups. We need an intermediate object called the Birget-Rhodes expansion of a group $\Gamma$.
+In general, universal groups are hard to calculate. They play a role in determining the structure of this class of inverse monoid however \cite{MR2058453}. This class of inverse monoid is also intimately connected to partial actions of discrete groups. We need an intermediate object called the Birget-Rhodes expansion \cite{MR745358}  of a group $\Gamma$.
 
 \begin{example}
 In \cite{MR745358,MR2221438} a inverse monoid was introduced that is universal for dual prehomomorphisms from a general inverse semigroup. In the context of a group $\Gamma$ this is called the \textit{prefix expansion}; its elements are given by pairs: $(X,g)$ for $\lbrace 1,g\rbrace \subset X$, where $X$ is a finite subset of $\Gamma$. The set of such $(X,g)$ is then equipped with a product and inverse:
@@ -233,7 +239,6 @@ Let $X$ be a countable set. A collection of partial bijections $\mathcal{T}$ is 
 \end{definition}
 Every abstract partial translation structure generates a coarse structure. If that coarse structure is the metric coarse structure then we just call it a \textit{partial translation structure}. 
 
-
 Every abstract partial translation structure is a collection of partial bijections that contains all inverses so it generates submonoid of $I(X)$.
 
 \begin{lemma}
@@ -248,16 +253,16 @@ Now we prove that $S$ is $0$-E-unitary. Let $e\in E(S)\setminus \lbrace 0 \rbrac
 A partial translation structure is called \textit{strong} if the inverse monoid generated by $S$ is strongly $0$-F-inverse. The examples of partial translation structures that arise from groups are all strong.
 
 \begin{theorem}\label{Thm:SPTSCE}
-If $X$ is a discrete proper metric space with a strong partial translation structure $\mathcal{T}$ then it coarsely embeds into a countable group (the universal group).
+If $X$ is a discrete proper metric space with a strong partial translation structure $\mathcal{T}$ then it coarsely embeds into a countable group equipped with a proper metric.
 \end{theorem}
 \begin{proof}
 Let $S$ be the inverse monoid generated by $\mathcal{T}$. This is strongly $0$-F-inverse by assumption; let $\Gamma$ be the universal group of $S$. We make use of this universal group by observing that $\mathcal{T}$ is a partial action of $\Gamma$ that is both free and transitive. Let $\overline{t}$ be the symbol in $\Gamma$ that arises from $t \in S$. The map $\theta: \Gamma \rightarrow I(X)$ given by $\overline{t} \mapsto t \in \mathcal{T}$. This is clearly a dual prehomomorphism and it is transitive as $\mathcal{T}$ partitions $X\times X$. Lastly it is free, as otherwise some $t \in \mathcal{T}$ must be idempotent on at least one point of $X$.
 
-We can now globalize this action. By Corollary \ref{Cor:FreeTrans} this globalisation is $\Gamma$. We now consider the map in this instance; pick a basepoint $x_{0} \in X$. There is a unique partial translation that maps each $x$ to $x_{0}$ and we denote this by $t_{x}$. This gives rise to a subset of $\Gamma$, via the prehomomorphism. The map is injective as it is injective on the maximal elements of $S$, which is $\mathcal{T}$. To observe that this map is coarse we use Theorem \ref{Thm:Embedding}.
+We can now globalize this action. By Corollary \ref{Cor:FreeTrans} this globalisation is $\Gamma$. We now consider the map in this instance; pick a basepoint $x_{0} \in X$. There is a unique partial translation that maps each $x$ to $x_{0}$ and we denote this by $t_{x}$. This gives rise to a subset of $\Gamma$, via the prehomomorphism that exists between $S$ and $\Gamma$ as $\mathcal{T}$ is strong. The map is injective as it is injective on the maximal elements of $S$, which is $\mathcal{T}$. To observe that this map is coarse we use Theorem \ref{Thm:Embedding}.
 \end{proof}
 
 \begin{remark}
-This actually characterises coarse embeddability into groups; see Theorem 29 \cite{}.
+This actually characterises coarse embeddability into groups; see Theorem 29 \cite{MR2363428}.
 \end{remark}
 
 \section{Embedding spaces of graphs into groups.}
@@ -311,25 +316,59 @@ The remainder of the paper is going to be focused on constructing a coherent Ped
 
 \subsection{AGS box space.}
 
-See the paper \cite{}. Will fill this in as time goes on. We have certain useful numbers associated to this sequence to compile and we need to prove a small combinatorial lemma concerning the barycentric subdivisions and sizes of the edge set that have a square number of edges.
+See the paper \cite{MR2899681}. Will fill this in as time goes on. We have certain useful numbers associated to this sequence to compile and we need to prove a small combinatorial lemma concerning the barycentric subdivisions and sizes of the edge set that have a square number of edges.
+
+We will be considering the following seed graph:
+
+\begin{center}
+\includegraphics[scale=0.6]{seed.png}
+\end{center}
+
+As a sequence of covers it is possible to describe the number of edges in the compliment of a spanning tree of each $X_{i}$; thereby computing the degree of the deck transformation group of the covering $X_{i+1}$. We give the formula:
+
+\begin{equation*}
+d_{i}=(d_{i-1}-1)2^{d_{i-1}) + 1
+\end{equation*} 
+Where $d_{0}=2$, then $d_{1}=5$. 
+
+
+We call the shortest cycles in the graph $X_{i}$, which have length $2^{i+3}$, cycles of \textit{type I}. Otherwise, a cycle will be \textit{type II}. Denote by $c_{I,i}$ a cycle with the same length as a type I cycle in $X_{i}$ (so  $2^{i+3}$). 
+
+Clearly, the edge set of the graph decomposes into the edge sets of some number of cycles of length $\vert c_{I} \vert$. 
 
 \subsection{A set of small cancellation words of Erchler-Osin.}
 
-For this section, we need an early section of \cite{}, mostly concerned again with certain numerical values that have significance in this work.
+For this section, we need an early section of \cite{MR2136537}, mostly concerned again with certain numerical 
+values that have significance in this work. 
 
-Explain their construction, state their theorem and the forms of words we'll be using.
+Explain the construction at a later date.
+
+It is enough to know here that they construct a family of words, for every $n$, that have length $n^{2}$ and satisfy small cancellation criteria $\lambda_{i}$, where the $\lambda_{i} \rightarrow 0$ in $i$. The construction passes through an auxillary set, which contains words of length $\lfloor \sqrt{n} \rfloor$ \cite{MR2136537}. 
+
+The overall set is denoted $T$, which is the union of the sets $T(n)$ for every $n$. 
+
+In order to label cycles using these words, we observe that we require  $\lfloor \sqrt{2^{i+3}} \rfloor$ to be an integer; we choose the graphs where $i+3$ is even, and so $i$ is odd. We remark that technical constraints also require us to choose some $i_{0} \in \mathbb{N}$ and consider the infinite tail: 
+\begin{equation*}
+X_{>i_{0},odd}= \sqcup_{\substack{i>i_{0}\\ i \mbox{ odd}}}X_{i}
+\end{equation*}
 
 \section{Barycentric subdivision.}
 
-Let $\lbrace X_{i} \rbrace$ be a sequence of finite graphs with uniformly bounded degree. Then we construct a new sequence of graphs by barycentric subdividing each edge into $k_{i}$ new edges. This graph, if $k_{i}$ is bounded, is coarsely equivalent to the original sequence and so if we give as input a sequence of large girth, the new space will not have property A. We will outline this in the next section.
+Let $\lbrace Z_{i} \rbrace$ be a sequence of finite graphs with uniformly bounded degree. Then we construct a new sequence of graphs by barycentric subdividing each edge into $k_{i}$ new edges. This graph, if $k_{i}$ is bounded, is coarsely equivalent to the original sequence and so if we give as input a sequence of large girth, the new space will not have property A. We will outline this in the next section.
 
 \subsection{Bounded barycentric subdivsion.}
 
-As the graphs $X_{i}$ have only even vertex degrees they each admit an Euler cycle. Additionally, every edge belongs to a unique cycle of type I, and so there is a bijection $E(X_{i}) = \sqcup_{j=1}^{l} c_{i,j}$, where $l$ is the number of cycles of type I. Each of these cycles has the same length, $\vert c_{i,j} \vert = k2^{i}$, where $k$ is the number of barycentric subdivisions applied to the original seed graph $Y$. We fix $k=2^{3}$ for what is to come.
+As the graphs $X_{i}$ have only even vertex degrees they each admit an Euler cycle. Additionally, every edge belongs to a unique cycle of type I, and so there is a bijection $E(X_{i}) = \sqcup_{j=1}^{l} c_{i,j}$, where $l$ is the number of cycles of type I. Each of these cycles has the same length, $\vert c_{i,j} \vert = k2^{i}$, where $k$ is the number of barycentric subdivisions applied to the original seed graph $Y$.
 
-By picking an initial vertex $v_{j}$ in each cycle $c_{i,j}$ it is possible to label $c_{i,j}$ using a word in $T(2^{i+3})$. This labelling then gives us a edge labelling $L$ of the graph $X_{i}$. Doing this for every $i>11$ gives us a labelling of the space of graphs $X_{>11}$, which we denote by $\mathcal{L}_{0}$. This will not in general be Pedersen, so we remedy this by adjusting the $X_{i}$.
+By picking an initial vertex $v_{j}$ in each cycle $c_{i,j}$ it is possible to label $c_{i,j}$ using a word in $T(2^{i+3})$. This labelling then gives us a edge labelling $L$ of the graph $X_{i}$. Doing this for every $i>i_{0}$ for some calculable $i_{0}$ gives us a labelling of the space of graphs $X_{>i_{0}}$, which we denote by $\mathcal{L}_{0}$. This will not in general be Pedersen, so we remedy this by adjusting the $X_{i}$.
 
-Given a finite graph $X$ with vertices of degree $2$ and $4$ (as we have above) and a labelling $L$, it is possible to construct a new graph $Y$ by replacing each vertex of degree 4 by two vertices joined by an edge. Now the maximal degree in $Y$ is $3$. We perform this construction on the entire sequence $X_{i}$ from above to get a sequence $Y_{i}$. We remark that this is in essence constructed from the disjoint union of the short cycle representatives of each $X_{i}$ by adding an edge between any two vertices that would be glued together in $X_{i}$. The spaces of graphs constructed from the $\lbrace X_{i} \rbrace$ and $\lbrace Y_{i} \rbrace$ are coarsely equivalent. Using the technique above, we can construct labelling on the $Y_{i}$ where each type I cycle is labelled by a word in $T(2^{i+3})$ and the new edges are labelled by a new letter $c$. Denote this new labelling by $\mathcal{L}_{1}$. The following lemma is now clear:
+Given a finite graph $X$ with vertices of degree $2$ and $4$ (as we have above) and a labelling $L$, it is possible to construct a new graph $Y$ by replacing each vertex of degree 4 by two vertices joined by an edge. Now the maximal degree in $Y$ is $3$. We perform this construction on the entire sequence $X_{i}$ from above to get a sequence $Y_{i}$. We remark that this is in essence constructed from the disjoint union of the short cycle representatives of each $X_{i}$ by adding an edge between any two vertices that would be glued together in $X_{i}$. 
+
+\begin{center}
+\includegraphics[scale=0.6]{Y.png}
+\end{center}
+
+The spaces of graphs constructed from the $\lbrace X_{i} \rbrace$ and $\lbrace Y_{i} \rbrace$ are coarsely equivalent. Using the technique above, we can construct labelling on the $Y_{i}$ where each type I cycle is labelled by a word in $T(2^{i+3})$ and the new edges are labelled by a new letter $c$. Denote this new labelling by $\mathcal{L}_{1}$. The following lemma is now clear:
 
 \begin{lemma}\label{lem:modpedersen}
 The labelling $\mathcal{L}_{1}$ is Pedersen. 
@@ -356,7 +395,7 @@ To be clear, the consequences of this working out as coherent are the following:
 The group $\Gamma$ constructed using the partial action induced by the labelling $\mathcal{L}_{1}$ does not have property A.
 \end{theorem}
 \begin{proof}
-The sequence of graphs $X_{>11}^{odd}$ admits a coherent Pedersen labelling $\tilde{L}$ that induces a free partial action of $\Gamma$. $\Gamma$ is also the universal group of $S(L)$, the inverse monoid generated by the labelling. We extend this labelling to a strong partial translation structure $\mathcal{T}$ using Proposition \ref{Prop:CheapTrick} and then apply Theorem \ref{Thm:SPTSCE} to get a coarse embedding into the universal group $U(S(\mathcal{T}))$. By Theorem \ref{Thm:SPTSCE} this universal group is isomorphic to $\Gamma \ast F_{\infty}$. As a consequence this does not have property A in any proper metric, from where we deduce that $\Gamma$ itself does not have property A by permanence properties \cite[Guentner]{} and Theorem 4.3.9 of \cite[Rufus' notes on A]{}. 
+The sequence of graphs $X_{>i_{0},odd}$ admits a coherent Pedersen labelling $\tilde{L}$ that induces a free partial action of $\Gamma$. $\Gamma$ is also the universal group of $S(L)$, the inverse monoid generated by the labelling. We extend this labelling to a strong partial translation structure $\mathcal{T}$ using Proposition \ref{Prop:CheapTrick} and then apply Theorem \ref{Thm:SPTSCE} to get a coarse embedding into the universal group $U(S(\mathcal{T}))$. By Theorem \ref{Thm:SPTSCE} this universal group is isomorphic to $\Gamma \ast F_{\infty}$. As a consequence this does not have property A in any proper metric, from where we deduce that $\Gamma$ itself does not have property A by permanence properties \cite{EG-permanence} and Theorem 4.3.9 of \cite{MR2562146}. 
 \end{proof}
 
 \begin{conjecture}
@@ -365,20 +404,26 @@ The labelling $\mathcal{L}_{1}$ is coherent.
 
 \subsection{What about graphical small cancellation?}
 
-Explain here that graphical small cancellation conditions introduced throughly in \cite{} give rise to coherent Pedersen labellings. Remark then that one could consider the goal of constructing a graphical small cancellation labelling explicitly to utilise these results. In fact, however, there is a view that these currently weaker conditions. 
+Graphical small cancellation conditions introduced throughly in \cite{DG-graphical} give rise to coherent Pedersen labellings;  consider the contrapositive. Remark then that one could consider the goal of constructing a graphical small cancellation labelling explicitly to utilise these results. In fact, however, there is a view that these currently weaker conditions.
 
-\section{A final application of Theorem \ref{}.}
+\subsection{An alternative approach to the problem of coherence.}
 
-In this section we will give a translation structure proof that Gromovs monster groups, the lacunary hyperbolic groups constructed via probabilistic methods \cite{,}, are not $C^{*}$-exact. This argument is a rephasing into geometric terms of the original argument given by Higson, Lafforgue and Skandalis \cite{}.
+Here we define a new method of understanding a graph with a cycle decomposition as we have constructed above. Let the space $Z_{i}$ denote the graph given by the disjoint union of $c_{i,j}$, where each $c_{i,j}$ is isomorphic to $c_{I,i}$ and $j=1,...,l_{i}$, where $l_{i}$ is the number of type $I$ cycles in $X_{i}$. 
 
-This geometric approach factors through a result of Milan and Steinberg \cite{}, which uses the concept of an inverse semigroup valued map that satisfies certain criteria:
+Then we can label $Z_{i}$ (in a coherent way) using the words from $T(2^{i+3})$, as above. To get $X_{i}$ from $Z_{i}$ requires some kind of equivalence relation on vertices; we represent this a different way using an inverse monoid as follows. Define $S$ using labelling in $a,b$, by considering the labels as partial maps on $Z_{i}$ in the usual way. Now, this means that certain words in $T(2^{i+3})$ are idempotent in $S$.
 
-We can develop this geometric argument further to prove the Baum-Connes conjecture for Gromov monster groups that coarsely contain a large girth expander.
+\begin{center}
+\includegraphics[scale=0.6]{invsemigraph.png}
+\end{center}
 
+To turn this into something built from a partial action on $X_{i}$, we add a new letter $e_{i,m}$ for each of the $m$ pairs of vertices that should be glued together (or connected by an edge in $Y_{i}$, for instance) and let $e_{i,m}$ act by mapping the single initial vertex of this edge to the terminal one and be defined nowhere else. Now clearly, the semigroup generated by $S$ and these new maps corresponding the missing connections, will describe a labelling of $Y_{i}$. It is also clear that applying this construction for every $i$ labelling of $Y$. This labelling will be in the alphabet $B:=\lbrace a,b e_{1,0},...,e_{i,m},... \rbrace$, which is countable. It is clearly both Pedersen and coherent (good), but also will not give a coarse embedding into a group with a proper metric as each $e_{i,m}$ would need to have a bounded length, but cannot possibly in the universal group with any proper metric (bad). Denote this semigroup by $S_{\infty}$.
 
+So we can imagine a process of fixing this in one step: define a partial bijection $c$ that does all the $e_{i,m}$ simultaenously. This gives us back the semigroup generated by the labelling $\mathcal{L}_{2}$. It is of course not clear that this is coherent. But we can also proceed by first gluing $e_{1,0}$ to $e_{1,1}$, and then performing some induction. This would give us a very large commuting diagram of quotients of $S_{\infty}$, which will have a direct limit $S(\mathcal{L}_{2})$. The issue is whether or not the quotient semigroups are strongly 0-F-inverse; whether or not is is possible to slowly replace finitely many $e_{i,m}$ with single grouped partial bijections $e_{m^{'}}$.
+
+This rephrasing still gets me nowhere, but it illustrates that the problem is hard. And tells me that there is a countable group with a stupid metric that coarsely contains the AGS space... this was probably known before but it is quite neat. :)
 
 \bibliographystyle{plain}
-\bibliography{ref.bib}
+\bibliography{/home/mfinnse/Documents/Work/NoteonUEG/ref.bib}
 
 
 \end{document}
